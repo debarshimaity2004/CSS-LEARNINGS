@@ -1,0 +1,79 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #222;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    display: grid;
+    width: 900px;
+    height: 450px;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    gap: 10px;
+    background: black;
+    padding: 10px;
+}
+
+.First {
+    grid-column: 1 / 2;
+    grid-row: 1 / 3;
+    background-color: red;
+}
+
+.Second {
+    grid-column: 2 / 4;
+    grid-row: 1 / 2;
+    background-color: cyan;
+}
+
+.Third {
+    grid-column: 4 / 7;
+    grid-row: 1 / 2;
+    background-color: goldenrod;
+}
+
+.Fourth {
+    grid-column: 2 / 3;
+    grid-row: 2 / 4;
+    background-color: goldenrod;
+}
+
+.Fifth {
+    grid-column: 3 / 6;
+    grid-row: 2 / 4;
+    background-color: white;
+}
+
+.Sixth {
+    grid-column: 6 / 6;
+    grid-row: 2 / 4;
+    background-color: red;
+}
+
+.Seventh {
+    grid-column: 1 / 2;
+    grid-row: 3 / 5;
+    background-color: white;
+}
+
+.Eighth {
+    grid-column: 2 / 4;
+    grid-row: 4 / 4;
+    background-color: red;
+}
+
+.Ninth {
+    grid-column: 4 / 7;
+    grid-row: 4/4;
+    background-color: aqua;
+}
+
