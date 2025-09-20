@@ -1,0 +1,304 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: radial-gradient(circle at center, #1a0b2e 0%, #000000 100%);
+    min-height: 100vh;
+    overflow: hidden;
+    font-family: Arial, sans-serif;
+}
+
+.solarsystem {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Sun */
+.sun {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    background: radial-gradient(circle, #ffeb3b 0%, #ff9800 50%, #ff5722 100%);
+    border-radius: 50%;
+    box-shadow: 0 0 30px #ffeb3b, 0 0 60px #ff9800;
+    z-index: 10;
+    animation: sun-pulse 4s ease-in-out infinite alternate;
+}
+
+.sun-glow {
+    position: absolute;
+    width: 120px;
+    height: 120px;
+    background: radial-gradient(circle, rgba(255, 235, 59, 0.3) 0%, transparent 70%);
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: glow-pulse 6s ease-in-out infinite alternate;
+}
+
+@keyframes sun-pulse {
+    0% { transform: scale(1); }
+    100% { transform: scale(1.1); }
+}
+
+@keyframes glow-pulse {
+    0% { transform: translate(-50%, -50%) scale(1); opacity: 0.3; }
+    100% { transform: translate(-50%, -50%) scale(1.2); opacity: 0.6; }
+}
+
+/* Orbits */
+.orbit {
+    position: absolute;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+.orbit.mercury {
+    width: 140px;
+    height: 140px;
+    animation: orbit 8s linear infinite;
+}
+
+.orbit.venus {
+    width: 180px;
+    height: 180px;
+    animation: orbit 12s linear infinite;
+}
+
+.orbit.earth {
+    width: 220px;
+    height: 220px;
+    animation: orbit 16s linear infinite;
+}
+
+.orbit.mars {
+    width: 260px;
+    height: 260px;
+    animation: orbit 24s linear infinite;
+}
+
+.orbit.jupiter {
+    width: 340px;
+    height: 340px;
+    animation: orbit 40s linear infinite;
+}
+
+.orbit.saturn {
+    width: 420px;
+    height: 420px;
+    animation: orbit 60s linear infinite;
+}
+
+.orbit.uranus {
+    width: 500px;
+    height: 500px;
+    animation: orbit 80s linear infinite;
+}
+
+.orbit.neptune {
+    width: 580px;
+    height: 580px;
+    animation: orbit 100s linear infinite;
+}
+
+@keyframes orbit {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* Planets */
+.planet {
+    position: absolute;
+    border-radius: 50%;
+    top: -50%;
+    left: -50%;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.planet:hover {
+    transform: scale(1.8);
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
+}
+
+.planet.mercury {
+    width: 8px;
+    height: 8px;
+    background: radial-gradient(circle, #8c7853 0%, #5d4e37 100%);
+    top: 0;
+    left: -4px;
+}
+
+.planet.venus {
+    width: 12px;
+    height: 12px;
+    background: radial-gradient(circle, #ffc649 0%, #ff9800 100%);
+    top: 0;
+    left: -6px;
+    animation: venus-glow 3s ease-in-out infinite alternate;
+}
+
+.planet.earth {
+    width: 14px;
+    height: 14px;
+    background: radial-gradient(circle, #4fc3f7 30%, #2e7d32 50%, #1976d2 100%);
+    top: 0;
+    left: -7px;
+    animation: earth-rotation 2s linear infinite;
+}
+
+.planet.mars {
+    width: 10px;
+    height: 10px;
+    background: radial-gradient(circle, #f44336 0%, #d32f2f 100%);
+    top: 0;
+    left: -5px;
+}
+
+.planet.jupiter {
+    width: 28px;
+    height: 28px;
+    background: radial-gradient(circle, #ff8f00 0%, #ff6f00 30%, #e65100 70%, #bf360c 100%);
+    top: 0;
+    left: -14px;
+    animation: jupiter-bands 8s linear infinite;
+}
+
+.planet.saturn {
+    width: 24px;
+    height: 24px;
+    background: radial-gradient(circle, #ffb300 0%, #ff8f00 50%, #f57c00 100%);
+    top: 0;
+    left: -12px;
+    position: relative;
+}
+
+.planet.saturn::before {
+    content: '';
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    border: 2px solid rgba(255, 179, 0, 0.6);
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.planet.saturn::after {
+    content: '';
+    position: absolute;
+    width: 35px;
+    height: 35px;
+    border: 1px solid rgba(255, 179, 0, 0.3);
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.planet.uranus {
+    width: 18px;
+    height: 18px;
+    background: radial-gradient(circle, #4fc3f7 0%, #0277bd 100%);
+    top: 0;
+    left: -9px;
+    animation: uranus-tilt 6s ease-in-out infinite alternate;
+}
+
+.planet.neptune {
+    width: 16px;
+    height: 16px;
+    background: radial-gradient(circle, #3f51b5 0%, #1a237e 100%);
+    top: 0;
+    left: -8px;
+    animation: neptune-storms 4s ease-in-out infinite alternate;
+}
+
+/* Planet-specific animations */
+@keyframes venus-glow {
+    0% { box-shadow: 0 0 5px rgba(255, 198, 73, 0.5); }
+    100% { box-shadow: 0 0 15px rgba(255, 198, 73, 0.8); }
+}
+
+@keyframes earth-rotation {
+    from { background-position: 0 0; }
+    to { background-position: 14px 0; }
+}
+
+@keyframes jupiter-bands {
+    0% { filter: hue-rotate(0deg); }
+    100% { filter: hue-rotate(20deg); }
+}
+
+@keyframes uranus-tilt {
+    0% { transform: rotate(-8deg); }
+    100% { transform: rotate(8deg); }
+}
+
+@keyframes neptune-storms {
+    0% { filter: brightness(1); }
+    100% { filter: brightness(1.2); }
+}
+
+/* Stars Background */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        radial-gradient(2px 2px at 20% 30%, white, transparent),
+        radial-gradient(2px 2px at 40% 70%, white, transparent),
+        radial-gradient(1px 1px at 90% 40%, white, transparent),
+        radial-gradient(1px 1px at 50% 50%, white, transparent),
+        radial-gradient(2px 2px at 80% 10%, white, transparent),
+        radial-gradient(1px 1px at 10% 80%, white, transparent),
+        radial-gradient(1px 1px at 30% 20%, white, transparent),
+        radial-gradient(2px 2px at 70% 80%, white, transparent),
+        radial-gradient(1px 1px at 60% 90%, white, transparent),
+        radial-gradient(2px 2px at 15% 60%, white, transparent);
+    background-repeat: repeat;
+    background-size: 300px 300px;
+    animation: twinkle 8s linear infinite;
+    z-index: -1;
+}
+
+@keyframes twinkle {
+    0% { opacity: 0.3; }
+    25% { opacity: 0.8; }
+    50% { opacity: 1; }
+    75% { opacity: 0.6; }
+    100% { opacity: 0.3; }
+}
+
+/* Additional cosmic effects */
+body::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        radial-gradient(circle at 25% 25%, rgba(138, 43, 226, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 75% 75%, rgba(30, 144, 255, 0.1) 0%, transparent 50%);
+    animation: cosmic-drift 20s ease-in-out infinite alternate;
+    z-index: -1;
+}
+
+@keyframes cosmic-drift {
+    0% { transform: translate(0, 0) rotate(0deg); }
+    100% { transform: translate(20px, -20px) rotate(1deg); }
+}
